@@ -1,0 +1,93 @@
+###create product
+POST http://localhost:8080/api/products
+X-Api-Key: Secret
+Content-Type: application/json
+Accept: application/json
+
+{
+"id" : "A0010",
+  "name": "Lenovo Legion 5",
+  "price": 300000,
+  "quantity": 10
+}
+
+###create product invalid
+
+POST http://localhost:8080/api/products
+X-Api-Key: Secret
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id" : "",
+  "name": "",
+  "price": 0,
+  "quantity": -10
+}
+### get product
+GET localhost:8080/api/products/A001
+X-Api-Key: Secret
+Accept: application/json
+### get product not found
+GET localhost:8080/api/products/Salah
+X-Api-Key: Secret
+Accept: application/json
+
+### Update Product
+PUT localhost:8080/api/products/A001
+X-Api-Key: Secret
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Lenovo Legion 6 pro",
+  "price": 100000,
+  "quantity": 10
+
+}
+### Update Product not Found
+PUT localhost:8080/api/products/Salah
+X-Api-Key: Secret
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Lenovo Legion 6 pro",
+  "price": 100000,
+  "quantity": 10
+
+}
+### Update Product with invalid body
+PUT localhost:8080/api/products/A001
+X-Api-Key: Secret
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "",
+  "price": 0,
+  "quantity": -10
+
+}
+
+### Delete product
+
+DELETE localhost:8080/api/products/A001
+X-Api-Key: Secret
+Accept: application/json
+
+### Delete product not found
+DELETE localhost:8080/api/products/A001
+X-Api-Key: Secret
+Accept: application/json
+
+### list products
+GET http://localhost:8080/api/products
+X-Api-Key: Secret
+### list products with size
+GET http://localhost:8080/api/products?size=5
+X-Api-Key: Secret
+### list products with size and page
+GET http://localhost:8080/api/products?size=5&page=1
+X-Api-Key: Secret
+
